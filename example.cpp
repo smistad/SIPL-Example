@@ -36,7 +36,8 @@ int main(int argc, char ** argv) {
             vector.y = 0.5*(im2->get(x,y+1)-im2->get(x,y-1));
             gradient->set(x,y,vector);
         }
-        w->update(); // update the image on screen
+        if(x % 10 == 0)
+            w->update(); // update the image on screen
     }
 
     // Load volume and display one slice on the screen
