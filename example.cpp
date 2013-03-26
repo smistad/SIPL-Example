@@ -2,15 +2,12 @@
 using namespace SIPL;
 
 int main(int argc, char ** argv) {
-    // Initialize SIPL (must always be called before using SIPL)
-    Init();
-
     // Load image from disk and display it
     Image<color_uchar> * im = new Image<color_uchar>("images/lena.jpg");
     im->show();
 
     // Remove all the green from the color image im
-    for(int i = 0; i < im->getWidth()*im->getHeight(); i++) {
+    for(int i = 0; i < im->getTotalSize(); i++) {
         color_uchar p = im->get(i);
         p.green = 0;
         im->set(i, p);
